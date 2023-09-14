@@ -15,6 +15,7 @@ import LinkButton from '@/app/components/linkbtn';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Collapse from '@/app/components/collapse';
+import QuestionCard from '@/app/components/questioncard';
 
 export default function DecisionTool() {
 const router = useRouter()
@@ -44,15 +45,8 @@ const router = useRouter()
           <div className='flex flex-col items-center gap-y-4 mt-4'>
             {
               selectData.map((item: {description:string, status:boolean}, index:any) =>
-              <div key={`question-${index}`} className={`w-full bg-[color:var(--tertiary-accent-sand)] px-12 py-6 flex justify-between rounded-3xl border-4 ${item.status ? 'border-lime-400' : 'border-[color:var(--tertiary-accent-sand)]'}`}>
-                <div className='max-w-xl my-auto flex h-36 text-left'>
-                  <SecondText>
-                    {item.description}
-                  </SecondText>
-                </div>
-                <div className='my-auto'>
-                  <SwitchButton active={item.status} />
-                </div>
+              <div className='w-full'>
+                <QuestionCard description={item.description} status={item.status}></QuestionCard>
               </div>
               )
             }
@@ -69,7 +63,9 @@ const router = useRouter()
           </div>
           <div className='w-full flex flex-col items-center gap-y-6'>
             {recommendationData.map((item:any, index:any) =>
-              <Collapse title={item.title} description={item.description} key={`recommendation-${index}`}></Collapse>
+            <div className='w-full' key={`recommendation-${index}`}>
+              <Collapse title={item.title} description={item.description} ></Collapse>
+            </div>
             )}
           </div>
         </div>

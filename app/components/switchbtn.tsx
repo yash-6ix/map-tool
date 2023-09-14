@@ -19,15 +19,12 @@ const ButtonWrapper = styled.div<{ $primary?: boolean; }>`
 `
 
 
-const SwitchButton: React.FC<{active: boolean }> = ({active}) => {
-    const [status, setStatus] = useState(active);
-  const onChange = () => {
-    setStatus(!status)
-  }
+const SwitchButton: React.FC<{active: boolean, onChange:()=>void }> = ({active, onChange}) => {
+
   return (
     <>
         <Switch
-            checked={status}
+            checked={active}
             onChange={onChange}
             handleDiameter={28}
             offColor="#53565A"
@@ -46,7 +43,7 @@ const SwitchButton: React.FC<{active: boolean }> = ({active}) => {
                 paddingRight: 2
                 }}
             >
-                <Text $primary={status}>
+                <Text $primary={active}>
                     NO
                 </Text>
             </div>
@@ -62,7 +59,7 @@ const SwitchButton: React.FC<{active: boolean }> = ({active}) => {
                 paddingRight: 2
                 }}
             >
-                <Text $primary={status}>
+                <Text $primary={active}>
                     YES
                 </Text>
             </div>
