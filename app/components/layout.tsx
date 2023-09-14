@@ -11,9 +11,9 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="flex min-h-screen flex-col items-center p-12">
+    <div className="flex min-h-screen flex-col items-center">
       <Navbar />
-      <main>{children}</main>
+      <main className='mb-10'>{children}</main>
       <Footer />
     </div>
   )

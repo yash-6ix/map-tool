@@ -40,7 +40,7 @@ export default function DecisionTool() {
           <div className='flex flex-col items-center gap-y-4 mt-4'>
             {
               selectData.map((item: {description:string, status:boolean}, index:any) =>
-              <div key={`question-${index}`} className="w-full bg-[color:var(--tertiary-accent-sand)] px-12 py-6 flex justify-between rounded-3xl">
+              <div key={`question-${index}`} className={`w-full bg-[color:var(--tertiary-accent-sand)] px-12 py-6 flex justify-between rounded-3xl border-4 ${item.status ? 'border-lime-400' : 'border-[color:var(--tertiary-accent-sand)]'}`}>
                 <div className='max-w-xl my-auto flex h-36 text-left'>
                   <SecondText>
                     {item.description}
@@ -65,7 +65,7 @@ export default function DecisionTool() {
           </div>
         </div>
         <div className='w-full mt-12 px-4 flex justify-between'>
-          <div className='my-auto flex gap-x-1'>
+          <div className='my-auto flex gap-x-1 cursor-pointer'>
             <LinkButton text={"Share"}/>
             <Image
               src="/images/share.svg"
