@@ -8,12 +8,13 @@ import SwitchButton from '@/app/components/switchbtn';
 import SubText from '@/app/components/text';
 import MainTitle from '@/app/components/title';
 import { ReactElement } from 'react';
-import { selectData } from '@/utlis/data';
+import { selectData, recommendationData } from '@/utlis/data';
 import SecondSubTitle from '@/app/components/secondsubtitle';
 import SubmitButton from '@/app/components/submitbtn';
 import LinkButton from '@/app/components/linkbtn';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Collapse from '@/app/components/collapse';
 
 export default function DecisionTool() {
 const router = useRouter()
@@ -65,6 +66,11 @@ const router = useRouter()
             <SubText>
               Click on each recommendation for more details.
             </SubText>
+          </div>
+          <div className='w-full flex flex-col items-center gap-y-6'>
+            {recommendationData.map((item:any, index:any) =>
+              <Collapse title={item.title} description={item.description} key={`recommendation-${index}`}></Collapse>
+            )}
           </div>
         </div>
         <div className='w-full mt-12 px-4 flex justify-between'>
