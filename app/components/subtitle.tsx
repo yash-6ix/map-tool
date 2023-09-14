@@ -3,8 +3,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Title = styled.h1`
-  color: #53565A;
+const Title = styled.h1<{ $primary?: boolean; }>`
+  color: ${props => props.$primary ? "#FFF" : "#53565A"};
   /* Subtitle 1 */
   font-family: KievitOT;
   font-size: 34px;
@@ -15,10 +15,10 @@ const Title = styled.h1`
 `;
 
 
-const SubTitle: React.FC<{children:string}> = ({children}) => {
+const SubTitle: React.FC<{children:string, active:boolean}> = ({children, active}) => {
   return (
     <>
-      <Title>{children}</Title>
+      <Title $primary={active}>{children}</Title>
     </>
   );
 };

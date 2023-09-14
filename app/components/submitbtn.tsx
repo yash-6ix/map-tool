@@ -3,12 +3,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.div`
+const Button = styled.button`
   padding: 10px 32px;
   flex-shrink: 0;
   border-radius: 20px;
   background: #A7D500;
-  flex
 
   color: #2B4E17;
   /* Subtitle 1 */
@@ -21,10 +20,10 @@ const Button = styled.div`
 `;
 
 
-const SubmitButton: React.FC = () => {
+const SubmitButton: React.FC<{text:string}> = ({text}) => {
   return (
       <Button>
-          Enter
+          {text}
       </Button>
   );
 };

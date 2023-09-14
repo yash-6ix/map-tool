@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import styled from 'styled-components';
 import LanguageButton from './components/langbtn'
 import MainTitle from './components/title';
 import SubText from './components/text';
@@ -46,7 +45,7 @@ export default function Home() {
 
         <div className='h-96 w-full bg-[color:var(--tertiary-accent-sand)] flex rounded-lg justify-center'>
             <div className='mx-auto my-auto max-w-sm text-center'>
-                <SubTitle>What is your Age?</SubTitle>
+                <SubTitle active={false}>What is your Age?</SubTitle>
                 <div className='mt-3 flex'>
                   <AgeInputBox />
                   <div className='ms-4 flex flex-col justify-center'>
@@ -69,7 +68,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className='mt-8 mx-12'>
-                  <SubmitButton/>
+                  <SubmitButton text={"Enter"}/>
                 </div>
             </div>
         </div>

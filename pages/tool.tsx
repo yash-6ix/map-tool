@@ -1,148 +1,93 @@
-import AgeInputBox from '@/app/components/ageinputbox';
-import LanguageButton from '@/app/components/langbtn';
-import SubmitButton from '@/app/components/submitbtn';
+import AgeWraper from '@/app/components/agewrapper';
+import BigSubTitle from '@/app/components/bigsubtitle';
+import Layout from '@/app/components/layout';
+import SecondText from '@/app/components/secondtext';
 import SubTitle from '@/app/components/subtitle';
+import SwitchButton from '@/app/components/switchbtn';
 import SubText from '@/app/components/text';
 import MainTitle from '@/app/components/title';
-import Image from 'next/image'
-import styled from 'styled-components';
+import { ReactElement } from 'react';
+import { selectData } from '@/utlis/data';
+import SecondSubTitle from '@/app/components/secondsubtitle';
+import SubmitButton from '@/app/components/submitbtn';
+import LinkButton from '@/app/components/linkbtn';
+import Image from 'next/image';
 
 export default function DecisionTool() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-12">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-            <a
-              className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="/images/logo.svg"
-                alt="MAP Logo"
-                className="dark:invert"
-                width={161}
-                height={55}
-                priority
-              />
-            </a>
-        </div>
-        <div className="fixed left-0 top-0 flex w-full justify-center from-zinc-200 pb-6 pt-8 lg:static lg:w-auto lg:p-4">
-            <LanguageButton text={"EN"} active={true}/>
-            <span className="my-auto px-1 text-lg">/</span>
-            <LanguageButton text={"FR"} active={false}/>
-        </div>
-      </div>
+    <>
       <div className="lg:max-w-5xl lg:w-full text-center mt-20">
         <div className='mb-6'>
             <div className='mb-2'>
-                <MainTitle>Decision Tool</MainTitle>
+                <MainTitle>MAP Decision Tool</MainTitle>
             </div>
             <SubText>
-                Answering the following questions can determine which preventive care services you should be offered. Prioritizing people with certain social characteristics for preventive health care can help improve health.
+            Answering the following questions can determine which preventive care services you should be offered. Prioritizing people with certain social characteristics for preventive health care can help improve health.
             </SubText>
         </div>
-
-        <div className='h-96 w-full bg-[color:var(--tertiary-accent-sand)] flex rounded-lg justify-center'>
-            <div className='mx-auto my-auto max-w-sm text-center'>
-                <SubTitle>What is your Age?</SubTitle>
-                <div className='mt-3 flex'>
-                  <AgeInputBox />
-                  <div className='ms-4 flex flex-col justify-center'>
-                    <Image
-                      src="/images/arrow-up.svg"
-                      alt="Arrow Up Icon"
-                      className="dark:invert"
-                      width={48}
-                      height={48}
-                      priority
-                    />
-                    <Image
-                      src="/images/arrow-down.svg"
-                      alt="Arrow Down Icon"
-                      className="dark:invert"
-                      width={48}
-                      height={48}
-                      priority
-                    />
-                  </div>
-                </div>
-                <div className='mt-8 mx-12'>
-                  <SubmitButton/>
-                </div>
+        <div className='w-full flex justify-center'>
+          <AgeWraper>
+            <div>
+              <SubTitle active={true}> What is your age?</SubTitle>
             </div>
+            <div className='bg-white px-10 py-2 mt-4 rounded-lg'>
+              <BigSubTitle active={false}>38</BigSubTitle>
+            </div>
+          </AgeWraper>
+        </div>
+        <div className='w-full mt-10'>
+          <BigSubTitle active={false}>Answer the following questions:</BigSubTitle>
+          <div className='flex flex-col items-center gap-y-4 mt-4'>
+            {
+              selectData.map((item: {description:string, status:boolean}, index:any) =>
+              <div key={`question-${index}`} className="w-full bg-[color:var(--tertiary-accent-sand)] px-12 py-6 flex justify-between rounded-3xl">
+                <div className='max-w-xl my-auto flex h-36 text-left'>
+                  <SecondText>
+                    {item.description}
+                  </SecondText>
+                </div>
+                <div className='my-auto'>
+                  <SwitchButton active={item.status} />
+                </div>
+              </div>
+              )
+            }
+          </div>
+        </div>
+        <div className='w-full p-12 bg-[color:var(--tertiary-accent-sand)] mt-24 text-left rounded-3xl'>
+          <div className='mb-12'>
+            <div className='mb-2'>
+              <SecondSubTitle active={false}>Recommended interventions:</SecondSubTitle>
+            </div>
+            <SubText>
+              Click on each recommendation for more details.
+            </SubText>
+          </div>
+        </div>
+        <div className='w-full mt-12 px-4 flex justify-between'>
+          <div className='my-auto flex gap-x-1'>
+            <LinkButton text={"Share"}/>
+            <Image
+              src="/images/share.svg"
+              alt="Share Icon"
+              className="dark:invert"
+              width={32}
+              height={32}
+            />
+          </div>
+          <div>
+            <SubmitButton text={"Download"}/>
+          </div>
         </div>
       </div>
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+    </>
+  )
+}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+DecisionTool.getLayout = function getLayout(page:ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
   )
 }
