@@ -19,10 +19,14 @@ const Button = styled.button`
   letter-spacing: 0.085px;
 `;
 
+interface SubmitButtonProps {
+  onClick: () => void;
+  text: string;
+}
 
-const SubmitButton: React.FC<{text:string}> = ({text}) => {
+const SubmitButton: React.FC<SubmitButtonProps> = ({onClick, text}) => {
   return (
-      <Button>
+      <Button onClick={onClick}>
           {text}
       </Button>
   );

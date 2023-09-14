@@ -1,3 +1,4 @@
+"use client"
 import AgeWraper from '@/app/components/agewrapper';
 import BigSubTitle from '@/app/components/bigsubtitle';
 import Layout from '@/app/components/layout';
@@ -12,8 +13,10 @@ import SecondSubTitle from '@/app/components/secondsubtitle';
 import SubmitButton from '@/app/components/submitbtn';
 import LinkButton from '@/app/components/linkbtn';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 export default function DecisionTool() {
+const router = useRouter()
   return (
     <>
       <div className="lg:max-w-5xl lg:w-full text-center mt-20">
@@ -31,7 +34,7 @@ export default function DecisionTool() {
               <SubTitle active={true}> What is your age?</SubTitle>
             </div>
             <div className='bg-white px-10 py-2 mt-4 rounded-lg'>
-              <BigSubTitle active={false}>38</BigSubTitle>
+              <BigSubTitle active={false}>{router.query.age}</BigSubTitle>
             </div>
           </AgeWraper>
         </div>
@@ -76,7 +79,7 @@ export default function DecisionTool() {
             />
           </div>
           <div>
-            <SubmitButton text={"Download"}/>
+            <SubmitButton onClick={()=>{console.log("Download")}} text={"Download"}/>
           </div>
         </div>
       </div>

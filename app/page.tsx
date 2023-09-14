@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import LanguageButton from './components/langbtn'
 import MainTitle from './components/title';
@@ -5,8 +6,32 @@ import SubText from './components/text';
 import SubmitButton from './components/submitbtn';
 import SubTitle from './components/subtitle';
 import AgeInputBox from './components/ageinputbox';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
+
+  const [age, setAge] = useState<string>("")
+  const router = useRouter();
+
+  const onSubmit = () => {
+    console.log("+++++++++++++++++++==")
+    if(age && parseInt(age)){
+      router.push(`/tool/${parseInt(age)}`)
+    }
+  }
+
+  const changeAge = (value:number) =>{
+    let changedAge:number = 0;
+    if(parseInt(age)){
+      changedAge = parseInt(age) + value
+    }
+    changedAge = 1
+    if(changedAge > 0){
+      setAge(changedAge.toString())
+    }
+  } 
+
   return (
     <main className="flex min-h-screen flex-col items-center p-12">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
@@ -47,28 +72,33 @@ export default function Home() {
             <div className='mx-auto my-auto max-w-sm text-center'>
                 <SubTitle active={false}>What is your Age?</SubTitle>
                 <div className='mt-3 flex'>
-                  <AgeInputBox />
+                  <AgeInputBox onChange={setAge} onEnter={()=>onSubmit()} value={age}/>
                   <div className='ms-4 flex flex-col justify-center'>
-                    <Image
-                      src="/images/arrow-up.svg"
-                      alt="Arrow Up Icon"
-                      className="dark:invert"
-                      width={48}
-                      height={48}
-                      priority
-                    />
-                    <Image
-                      src="/images/arrow-down.svg"
-                      alt="Arrow Down Icon"
-                      className="dark:invert"
-                      width={48}
-                      height={48}
-                      priority
-                    />
+                    <div onClick={() => changeAge(1)}>
+                      <Image
+                        src="/images/arrow-up.svg"
+                        alt="Arrow Up Icon"
+                        className="dark:invert cursor-pointer"
+                        width={48}
+                        height={48}
+                        priority
+                      />
+                    </div>
+                    <div onClick={() => changeAge(-1)}>
+                      <Image
+                        src="/images/arrow-down.svg"
+                        alt="Arrow Down Icon"
+                        className="dark:invert cursor-pointer"
+                        width={48}
+                        height={48}
+                        priority
+                      />
+                    </div>
+  
                   </div>
                 </div>
                 <div className='mt-8 mx-12'>
-                  <SubmitButton text={"Enter"}/>
+                  <SubmitButton onClick={onSubmit} text={"Enter"}/>
                 </div>
             </div>
         </div>
