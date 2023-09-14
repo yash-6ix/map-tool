@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const Text = styled.p`
   color: #53565A;
-  font-family: KievitOT;
+  font-family: 'KievitOT';
   font-size: 34px;
   font-style: normal;
   font-weight: 500;

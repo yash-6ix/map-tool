@@ -13,13 +13,24 @@ const Link = styled.p<{ $primary?: boolean; }>`
     text-decoration-line: underline;
 `;
 
+const Text = styled.p`
+    color: #FFF;
+    /* Subtitle 2 */
+    font-family: KievitOT;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.06px;
+`
+
 export default function Footer() {
     return (
         <>
         <div className="w-full py-20 px-40 bg-lime-800">
-            <p className="text-white">
+            <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec viverra ipsum. Mauris augue magna, dignissim ut nisl et, egestas accumsan elit. 
-            </p>
+            </Text>
             <div className="w-full flex justify-between mt-20">
                 <div className='flex flex-col gap-y-1'>
                     <Link>About us</Link>

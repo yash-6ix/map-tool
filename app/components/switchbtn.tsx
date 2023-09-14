@@ -6,7 +6,7 @@ import Switch from "react-switch";
 
 const Text = styled.h3<{ $primary?: boolean; }>`
     color: ${props => props.$primary ? "#2B4E17" : "#FFF"};
-    font-family: KievitOT;
+    font-family: 'KievitOT';
     font-size: 25.5px;
     font-style: normal;
     font-weight: 700;
@@ -47,7 +47,7 @@ const SwitchButton: React.FC<{active: boolean }> = ({active}) => {
                 }}
             >
                 <Text $primary={status}>
-                    No
+                    NO
                 </Text>
             </div>
             }
@@ -63,7 +63,7 @@ const SwitchButton: React.FC<{active: boolean }> = ({active}) => {
                 }}
             >
                 <Text $primary={status}>
-                    Yes
+                    YES
                 </Text>
             </div>
             }

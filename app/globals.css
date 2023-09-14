@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: 'KievitOT';
+  src: url('/fonts/KievitOT-Regular.otf') format('truetype');
+  /* Replace 'your-otp-font-file.ttf' with the actual name of your OTP font file */
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
