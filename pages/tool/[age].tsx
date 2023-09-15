@@ -49,9 +49,9 @@ export default function DecisionTool() {
           <BigSubTitle active={false}>Answer the following questions:</BigSubTitle>
           <div className='flex flex-col items-center gap-y-4 mt-4'>
             {
-              selectData.map((item: {description:string, status:boolean}, index:any) =>
+              selectData.map((item: {description:string}, index:any) =>
               <div className='w-full'>
-                <QuestionCard description={item.description} status={item.status}></QuestionCard>
+                <QuestionCard description={item.description}></QuestionCard>
               </div>
               )
             }

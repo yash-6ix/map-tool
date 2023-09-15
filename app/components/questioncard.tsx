@@ -4,9 +4,9 @@ import React, { useState } from "react"
 import SecondText from "./secondtext"
 import SwitchButton from "./switchbtn"
 
-const QuestionCard: React.FC<{description:string, status:boolean}> = ({description, status}) => {
+const QuestionCard: React.FC<{description:string}> = ({description}) => {
 
-    const [selected, setSelect] = useState(status)
+    const [selected, setSelect] = useState(false)
     const changeStatus = () => {
         setSelect(!selected)
     }

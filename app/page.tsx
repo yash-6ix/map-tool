@@ -7,14 +7,15 @@ import SubmitButton from './components/submitbtn';
 import SubTitle from './components/subtitle';
 import AgeInputBox from './components/ageinputbox';
 import { useEffect, useState } from 'react';
-import { useParams, usePathname, useRouter } from 'next/navigation'
-import { stringify } from 'querystring';
+import { usePathname, useRouter } from 'next/navigation'
+import jsonData from '@/utlis/webcopy.json';
 
 export default function Home() {
 
   const [age, setAge] = useState<string>("")
   const [lang, setLang] = useState("en");
   const router = useRouter();
+  const langData = jsonData as any;
   const pathname = usePathname();
 
   useEffect(() => {
@@ -68,16 +69,16 @@ export default function Home() {
       <div className="lg:max-w-5xl lg:w-full text-center mt-20">
         <div className='mb-6'>
             <div className='mb-2'>
-                <MainTitle>Decision Tool</MainTitle>
+                <MainTitle>{langData[lang].title}</MainTitle>
             </div>
             <SubText>
-                Answering the following questions can determine which preventive care services you should be offered. Prioritizing people with certain social characteristics for preventive health care can help improve health.
+              {langData[lang].subtitle}
             </SubText>
         </div>
 
         <div className='h-96 w-full bg-[color:var(--tertiary-accent-sand)] flex rounded-lg justify-center'>
             <div className='mx-auto my-auto max-w-sm text-center'>
-                <SubTitle active={false}>What is your Age?</SubTitle>
+                <SubTitle active={false}>{langData[lang].ask_age}</SubTitle>
                 <div className='mt-3 flex'>
                   <AgeInputBox onChange={setAge} onEnter={()=>onSubmit()} value={age}/>
                   <div className='ms-4 flex flex-col justify-center'>
@@ -105,7 +106,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className='mt-8 mx-12'>
-                  <SubmitButton onClick={onSubmit} text={"Enter"}/>
+                  <SubmitButton onClick={onSubmit} text={langData[lang].enter}/>
                 </div>
             </div>
         </div>
