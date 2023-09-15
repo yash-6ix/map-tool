@@ -6,16 +6,23 @@ import SubText from './components/text';
 import SubmitButton from './components/submitbtn';
 import SubTitle from './components/subtitle';
 import AgeInputBox from './components/ageinputbox';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react';
+import { useParams, usePathname, useRouter } from 'next/navigation'
+import { stringify } from 'querystring';
 
 export default function Home() {
 
   const [age, setAge] = useState<string>("")
+  const [lang, setLang] = useState("en");
   const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const queryString = `?lang=${lang}`
+    router.push(`${pathname}/${queryString}`);
+  }, [lang])
 
   const onSubmit = () => {
-    console.log("+++++++++++++++++++==")
     if(age && parseInt(age)){
       router.push(`/tool/${parseInt(age)}`)
     }
@@ -53,9 +60,9 @@ export default function Home() {
             </a>
         </div>
         <div className="fixed left-0 top-0 flex w-full justify-center from-zinc-200 pb-6 pt-8 lg:static lg:w-auto lg:p-4">
-            <LanguageButton text={"EN"} active={true}/>
+            <LanguageButton text={"en"} active={lang == "en" ? true : false} changeLanguage={setLang}/>
             <span className="my-auto px-1 text-lg">/</span>
-            <LanguageButton text={"FR"} active={false}/>
+            <LanguageButton text={"fr"} active={lang == "fr" ? true : false} changeLanguage={setLang}/>
         </div>
       </div>
       <div className="lg:max-w-5xl lg:w-full text-center mt-20">

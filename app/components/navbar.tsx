@@ -1,7 +1,18 @@
 import Image from "next/image";
 import LanguageButton from "./langbtn";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+    const [lang, setLang] = useState("en");
+    const router = useRouter()
+    const pathname = usePathname()
+    useEffect(() => {
+        if(router.query.age){
+            router.push(`${pathname}?lang=${lang}`);
+        }
+      }, [lang, router.query.age])
     return (
         <>
             <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex mx-12 mt-12">
@@ -23,9 +34,9 @@ export default function Navbar() {
                     </a>
                 </div>
                 <div className="fixed left-0 top-0 flex w-full justify-center from-zinc-200 pb-6 pt-8 lg:static lg:w-auto lg:p-4">
-                    <LanguageButton text={"EN"} active={true}/>
+                    <LanguageButton text={"en"} active={lang == "en" ? true : false} changeLanguage={setLang}/>
                     <span className="my-auto px-1 text-lg">/</span>
-                    <LanguageButton text={"FR"} active={false}/>
+                    <LanguageButton text={"fr"} active={lang == "fr" ? true : false} changeLanguage={setLang}/>
                 </div>
             </div>
         </>

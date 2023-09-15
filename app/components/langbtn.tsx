@@ -22,9 +22,9 @@ const Button = styled.button<{ $primary?: boolean; }>`
 `;
 
 
-const LanguageButton: React.FC<{ text: string; active: boolean }> = ({text, active}) => {
+const LanguageButton: React.FC<{ text: string; active: boolean; changeLanguage: (val:string)=>void; }> = ({text, active, changeLanguage}) => {
   return (
-      <Button $primary={active}>{text}</Button>
+      <Button $primary={active} onClick={()=>changeLanguage(text)} className='uppercase'>{text}</Button>
   );
 };
 

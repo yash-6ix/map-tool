@@ -2,12 +2,10 @@
 import AgeWraper from '@/app/components/agewrapper';
 import BigSubTitle from '@/app/components/bigsubtitle';
 import Layout from '@/app/components/layout';
-import SecondText from '@/app/components/secondtext';
 import SubTitle from '@/app/components/subtitle';
-import SwitchButton from '@/app/components/switchbtn';
 import SubText from '@/app/components/text';
 import MainTitle from '@/app/components/title';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { selectData, recommendationData } from '@/utlis/data';
 import SecondSubTitle from '@/app/components/secondsubtitle';
 import SubmitButton from '@/app/components/submitbtn';
@@ -16,9 +14,16 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Collapse from '@/app/components/collapse';
 import QuestionCard from '@/app/components/questioncard';
+import { useParams, usePathname } from 'next/navigation';
 
 export default function DecisionTool() {
-const router = useRouter()
+  const router = useRouter()
+
+  useEffect(() => {
+    if(router.query.age && router.query.lang){
+      console.log(router.query.lang)
+    }
+  },[router])
   return (
     <>
       <div className="lg:max-w-5xl lg:w-full text-center mt-20">
