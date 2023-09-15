@@ -15,7 +15,7 @@ const Title = styled.h1<{ $primary?: boolean; }>`
 `;
 
 
-const SubTitle: React.FC<{children:string, active:boolean}> = ({children, active}) => {
+const SubTitle: React.FC<{children:any, active:boolean}> = ({children, active}) => {
   return (
     <>
       <Title $primary={active}>{children}</Title>

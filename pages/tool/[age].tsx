@@ -5,7 +5,7 @@ import Layout from '@/app/components/layout';
 import SubTitle from '@/app/components/subtitle';
 import SubText from '@/app/components/text';
 import MainTitle from '@/app/components/title';
-import { ReactElement, useEffect } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { selectData, recommendationData } from '@/utlis/data';
 import SecondSubTitle from '@/app/components/secondsubtitle';
 import SubmitButton from '@/app/components/submitbtn';
@@ -14,14 +14,16 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Collapse from '@/app/components/collapse';
 import QuestionCard from '@/app/components/questioncard';
-import { useParams, usePathname } from 'next/navigation';
+import jsonData from '@/utlis/webcopy.json'
 
 export default function DecisionTool() {
   const router = useRouter()
+  const langData = jsonData as any;
+  const [lang, setLang] = useState("en")
 
   useEffect(() => {
     if(router.query.age && router.query.lang){
-      console.log(router.query.lang)
+      setLang(router.query.lang as string)
     }
   },[router])
   return (
@@ -29,16 +31,16 @@ export default function DecisionTool() {
       <div className="lg:max-w-5xl lg:w-full text-center mt-20">
         <div className='mb-6'>
             <div className='mb-2'>
-                <MainTitle>MAP Decision Tool</MainTitle>
+                <MainTitle>{langData[lang].title_1}</MainTitle>
             </div>
             <SubText>
-            Answering the following questions can determine which preventive care services you should be offered. Prioritizing people with certain social characteristics for preventive health care can help improve health.
+              {langData[lang].subtitle}
             </SubText>
         </div>
         <div className='w-full flex justify-center'>
           <AgeWraper>
             <div>
-              <SubTitle active={true}> What is your age?</SubTitle>
+              <SubTitle active={true}> {langData[lang].ask_age}</SubTitle>
             </div>
             <div className='bg-white px-10 py-2 mt-4 rounded-lg'>
               <BigSubTitle active={false}>{router.query.age}</BigSubTitle>
@@ -46,7 +48,7 @@ export default function DecisionTool() {
           </AgeWraper>
         </div>
         <div className='w-full mt-10'>
-          <BigSubTitle active={false}>Answer the following questions:</BigSubTitle>
+          <BigSubTitle active={false}>{langData[lang].question_title}</BigSubTitle>
           <div className='flex flex-col items-center gap-y-4 mt-4'>
             {
               selectData.map((item: {description:string}, index:any) =>
@@ -60,10 +62,10 @@ export default function DecisionTool() {
         <div className='w-full p-12 bg-[color:var(--tertiary-accent-sand)] mt-24 text-left rounded-3xl'>
           <div className='mb-12'>
             <div className='mb-2'>
-              <SecondSubTitle active={false}>Recommended interventions:</SecondSubTitle>
+              <SecondSubTitle active={false}>{langData[lang].intervention_title}</SecondSubTitle>
             </div>
             <SubText>
-              Click on each recommendation for more details.
+              {langData[lang].intervention_subtitle}
             </SubText>
           </div>
           <div className='w-full flex flex-col items-center gap-y-6'>
@@ -76,7 +78,7 @@ export default function DecisionTool() {
         </div>
         <div className='w-full mt-12 px-4 flex justify-between'>
           <div className='my-auto flex gap-x-1 cursor-pointer'>
-            <LinkButton text={"Share"}/>
+            <LinkButton text={langData[lang].share}/>
             <Image
               src="/images/share.svg"
               alt="Share Icon"
@@ -86,7 +88,7 @@ export default function DecisionTool() {
             />
           </div>
           <div>
-            <SubmitButton onClick={()=>{console.log("Download")}} text={"Download"}/>
+            <SubmitButton onClick={()=>{console.log("Download")}} text={langData[lang].download}/>
           </div>
         </div>
       </div>

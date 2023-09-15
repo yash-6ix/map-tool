@@ -4,13 +4,29 @@
         "title_1" : "MAP Decision Tool",
         "subtitle" : "Answering the following questions can determine which preventive care services you should be offered. Prioritizing people with certain social characteristics for preventive health care can help improve health.",
         "ask_age": "What is your age?",
-        "enter": "Enter"
+        "enter": "Enter",
+        "question_title": "Answer the following questions:",
+        "intervention_title": "Recommended interventions:",
+        "intervention_subtitle" : "Click on each recommendation for more details.",
+        "share": "Share",
+        "download": "Download",
+        "aboutus" : "About us",
+        "contactus" : "Contact us",
+        "termsofuse" : "Terms of use"
     },
     "fr": {
         "title" : "Outil de décision",
         "title_1" : "Outil de Décision MAP",
         "subtitle" : "Répondre aux questions suivantes peut déterminer les services de soins préventifs qui devraient vous être proposés. Donner la priorité aux personnes présentant certaines caractéristiques sociales pour les soins de santé préventifs peut contribuer à améliorer la santé.",
         "ask_age": "Quel est ton âge ?",
-        "enter" : "Entrer"
+        "enter" : "Entrer",
+        "question_title": "Répondez aux questions suivantes:",
+        "intervention_title": "Interventions recommandées:",
+        "intervention_subtitle" : "Cliquez sur chaque recommandation pour plus de détails.",
+        "share": "Partage",
+        "download": "Télécharger",
+        "aboutus" : "À propos de nous",
+        "contactus" : "Contactez-nous",
+        "termsofuse" : "Conditions d'utilisation"
     }
 }
