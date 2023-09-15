@@ -53,7 +53,7 @@ export default function DecisionTool() {
             {
               selectData.map((item: {description:string}, index:any) =>
               <div className='w-full'>
-                <QuestionCard description={item.description}></QuestionCard>
+                <QuestionCard description={item.description} yes={langData[lang].yes} no={langData[lang].no}></QuestionCard>
               </div>
               )
             }

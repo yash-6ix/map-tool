@@ -19,7 +19,7 @@ const ButtonWrapper = styled.div<{ $primary?: boolean; }>`
 `
 
 
-const SwitchButton: React.FC<{active: boolean, onChange:()=>void }> = ({active, onChange}) => {
+const SwitchButton: React.FC<{active: boolean, onChange:()=>void, yes:string, no:string }> = ({active, onChange, yes, no}) => {
 
   return (
     <>
@@ -44,7 +44,7 @@ const SwitchButton: React.FC<{active: boolean, onChange:()=>void }> = ({active, 
                 }}
             >
                 <Text $primary={active}>
-                    NO
+                    {no}
                 </Text>
             </div>
             }
@@ -60,7 +60,7 @@ const SwitchButton: React.FC<{active: boolean, onChange:()=>void }> = ({active, 
                 }}
             >
                 <Text $primary={active}>
-                    YES
+                    {yes}
                 </Text>
             </div>
             }

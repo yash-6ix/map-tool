@@ -12,7 +12,9 @@
         "download": "Download",
         "aboutus" : "About us",
         "contactus" : "Contact us",
-        "termsofuse" : "Terms of use"
+        "termsofuse" : "Terms of use",
+        "yes": "Yes",
+        "no": "No"
     },
     "fr": {
         "title" : "Outil de décision",
@@ -27,6 +29,8 @@
         "download": "Télécharger",
         "aboutus" : "À propos de nous",
         "contactus" : "Contactez-nous",
-        "termsofuse" : "Conditions d'utilisation"
+        "termsofuse" : "Conditions d'utilisation",
+        "yes": "Oui",
+        "no": "Non"
     }
 }

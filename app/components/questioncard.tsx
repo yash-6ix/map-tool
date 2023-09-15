@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import SecondText from "./secondtext"
 import SwitchButton from "./switchbtn"
 
-const QuestionCard: React.FC<{description:string}> = ({description}) => {
+const QuestionCard: React.FC<{description:string, yes:string, no:string}> = ({description, yes, no}) => {
 
     const [selected, setSelect] = useState(false)
     const changeStatus = () => {
@@ -18,7 +18,7 @@ const QuestionCard: React.FC<{description:string}> = ({description}) => {
           </SecondText>
         </div>
         <div className='my-auto'>
-          <SwitchButton active={selected} onChange={changeStatus} />
+          <SwitchButton active={selected} onChange={changeStatus} yes={yes} no={no} />
         </div>
     </div>
     )

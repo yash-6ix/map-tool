@@ -1,6 +1,8 @@
 import Image from 'next/image';
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import jsondata from '@/utlis/webcopy.json';
 
 const Link = styled.p<{ $primary?: boolean; }>`
     color: #A7D500;
@@ -25,6 +27,14 @@ const Text = styled.p`
 `
 
 export default function Footer() {
+    const [lang, setLang] = useState("en");
+    const router = useRouter()
+    const langData = jsondata as any;
+    useEffect(() => {
+        if(router.query.lang){
+          setLang(router.query.lang as string)
+        }
+      },[router])
     return (
         <>
         <div className="w-full py-20 px-40 bg-lime-800">
@@ -33,9 +43,9 @@ export default function Footer() {
             </Text>
             <div className="w-full flex justify-between mt-20">
                 <div className='flex flex-col gap-y-1'>
-                    <Link>About us</Link>
-                    <Link>Contact us</Link>
-                    <Link>Terms of use</Link>
+                    <Link>{langData[lang].aboutus}</Link>
+                    <Link>{langData[lang].contactus}</Link>
+                    <Link>{langData[lang].termsofuse}</Link>
                 </div>
                 <div className='flex'>
                     <Image
