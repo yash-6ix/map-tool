@@ -38,7 +38,7 @@ const AgeInputBox: React.FC<AgeInputBoxProps> = ({ onChange, onEnter, value }) =
   }
 
   return (
-    <Inputbox onChange={(e) => handleInputChange(e)} onKeyDown={(e) => handleKeyDown(e)} />
+    <Inputbox value={value} onChange={(e) => handleInputChange(e)} onKeyDown={(e) => handleKeyDown(e)} />
   );
 };
 

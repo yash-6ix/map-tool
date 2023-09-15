@@ -31,11 +31,9 @@ export default function Home() {
 
   const changeAge = (value:number) =>{
     let changedAge:number = 0;
-    if(parseInt(age)){
-      changedAge = parseInt(age) + value
-    }
-    changedAge = 1
-    if(changedAge > 0){
+    changedAge = parseInt(age) + value
+    if (changedAge > 0)
+    {
       setAge(changedAge.toString())
     }
   } 
