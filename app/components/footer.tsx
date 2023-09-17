@@ -24,6 +24,11 @@ const Text = styled.p`
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.06px;
+
+    @media (max-width: 576px) { /* Change the value based on your desired breakpoint */
+        font-size: 16px; /* Change the font size for smaller devices */
+        letter-spacing:0.04px
+    }
 `
 
 export default function Footer() {
@@ -37,11 +42,11 @@ export default function Footer() {
       },[router])
     return (
         <>
-        <div className="w-full py-20 px-40 bg-lime-800">
+        <div className="w-full py-8 px-4 md:py-20 md:px-40 bg-lime-800">
             <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec viverra ipsum. Mauris augue magna, dignissim ut nisl et, egestas accumsan elit. 
             </Text>
-            <div className="w-full flex justify-between mt-20">
+            <div className="w-full flex justify-between mt-12 md:mt-20">
                 <div className='flex flex-col gap-y-1'>
                     <Link>{langData[lang].aboutus}</Link>
                     <Link>{langData[lang].contactus}</Link>

@@ -11,6 +11,11 @@ const Text = styled.p`
   font-weight: 500;
   line-height: normal;
   letter-spacing: 0.06px;
+
+  @media (max-width: 576px) { /* Change the value based on your desired breakpoint */
+    font-size: 16px; /* Change the font size for smaller devices */
+    letter-spacing:0.04px
+  }
 `;
 
 

@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const Inputbox = styled.input`
-  padding: 24px 70px;
+  padding: 24px 60px;
   align-items: center;
   flex: 1 0 0;
   align-self: stretch;
