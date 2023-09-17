@@ -13,6 +13,12 @@ const Link = styled.p<{ $primary?: boolean; }>`
     line-height: normal;
     letter-spacing: 0.06px;
     text-decoration-line: underline;
+
+    @media (max-width: 576px) { /* Change the value based on your desired breakpoint */
+        font-size: 16px; /* Change the font size for smaller devices */
+        letter-spacing:0.04px;
+        text-decoration-line: none;
+    }
 `;
 
 const Text = styled.p`
@@ -46,13 +52,13 @@ export default function Footer() {
             <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec viverra ipsum. Mauris augue magna, dignissim ut nisl et, egestas accumsan elit. 
             </Text>
-            <div className="w-full flex justify-between mt-12 md:mt-20">
-                <div className='flex flex-col gap-y-1'>
+            <div className="w-full md:flex justify-between mt-6 md:mt-12">
+                <div className='flex md:text-left flex-col gap-y-2 md:gap-y-1 text-center'>
                     <Link>{langData[lang].aboutus}</Link>
                     <Link>{langData[lang].contactus}</Link>
                     <Link>{langData[lang].termsofuse}</Link>
                 </div>
-                <div className='flex'>
+                <div className='flex justify-center mt-6 md:m-0'>
                     <Image
                         src="/images/logo-dark.svg"
                         alt="MAP Logo"
