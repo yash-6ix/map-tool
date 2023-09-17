@@ -28,19 +28,21 @@ export default function DecisionTool() {
   },[router])
   return (
     <>
-      <div className="lg:max-w-5xl lg:w-full text-center mt-12 md:mt-20">
+      <div className="w-full lg:max-w-5xl text-center mt-12 md:mt-20">
         <div className='mb-6'>
             <div className='mb-2'>
                 <MainTitle>{langData[lang].title_1}</MainTitle>
             </div>
-            <SubText>
-              {langData[lang].subtitle}
-            </SubText>
+            <div className='text-left md:text-center'>
+              <SubText>
+                {langData[lang].subtitle}
+              </SubText>
+            </div>
         </div>
         <div className='w-full flex justify-center'>
           <AgeWraper>
             <div>
-              <SubTitle active={true}> {langData[lang].ask_age}</SubTitle>
+              <SubTitle active={true} page={true}> {langData[lang].ask_age}</SubTitle>
             </div>
             <div className='bg-white px-10 py-2 mt-4 rounded-lg'>
               <BigSubTitle active={false}>{router.query.age}</BigSubTitle>
@@ -59,8 +61,8 @@ export default function DecisionTool() {
             }
           </div>
         </div>
-        <div className='w-full p-12 bg-[color:var(--tertiary-accent-sand)] mt-24 text-left rounded-3xl'>
-          <div className='mb-12'>
+        <div className='w-full p-6 md:p-12 bg-[color:var(--tertiary-accent-sand)] mt-24 text-left rounded-3xl'>
+          <div className='mb-6 md:mb-12'>
             <div className='mb-2'>
               <SecondSubTitle active={false}>{langData[lang].intervention_title}</SecondSubTitle>
             </div>

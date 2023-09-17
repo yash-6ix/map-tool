@@ -81,9 +81,9 @@ export default function Home() {
             <LanguageButton text={"fr"} active={lang == "fr" ? true : false} changeLanguage={setLang}/>
         </div>
       </div>
-      <div className="lg:max-w-5xl lg:w-full text-center mt-12 md:mt-20 px-4 md:px-12">
+      <div className="lg:max-w-5xl lg:w-full md:text-center mt-12 md:mt-20 px-4 md:px-12">
         <div className='mb-6'>
-            <div className='mb-2'>
+            <div className='mb-2 text-center'>
                 <MainTitle>{langData[lang].title}</MainTitle>
             </div>
             <SubText>

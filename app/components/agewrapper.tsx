@@ -11,6 +11,10 @@ const Wrapper = styled.div`
     align-items: center;
     border-radius: 50px;
     background: #53565A;
+
+    @media (max-width: 576px) { /* Change the value based on your desired breakpoint */
+      padding: 24px 60px;
+    }
 `;
 
 

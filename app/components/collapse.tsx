@@ -11,6 +11,11 @@ const Title = styled.h1<{ $primary?: boolean; }>`
     font-weight: 700;
     line-height: normal;
     letter-spacing: 0.06px;
+
+    @media (max-width: 576px) { /* Change the value based on your desired breakpoint */
+        font-size: 14px; /* Change the font size for smaller devices */
+        letter-spacing:0.04px
+    }
 `;
 
 const Text = styled.p`
@@ -22,6 +27,11 @@ const Text = styled.p`
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.06px;
+
+    @media (max-width: 576px) { /* Change the value based on your desired breakpoint */
+        font-size: 12px; /* Change the font size for smaller devices */
+        letter-spacing:0.04px
+    }
 `
 
 const Transition = styled.div`
@@ -37,7 +47,7 @@ const Collapse: React.FC<{title:string, description:string, keyProp?:string}> = 
 
     return (
         <div key={keyProp} className="bg-white rounded-xl w-full">
-            <div className={`flex w-full rounded-xl border border-zinc-600 ps-12 pe-6 py-4 justify-between ${isOpen&&"bg-zinc-600"}`}>
+            <div className={`flex w-full rounded-xl border border-zinc-600 ps-6 md:ps-12 ps-4 md:pe-6 py-2 md:py-4 justify-between ${isOpen&&"bg-zinc-600"}`}>
                 <Title className="my-auto" $primary={isOpen}>{title}</Title>
                 {
                     isOpen?
@@ -64,7 +74,7 @@ const Collapse: React.FC<{title:string, description:string, keyProp?:string}> = 
  
             </div>
             <SmoothCollapse expanded={isOpen}>
-                <div className="px-12 py-8">
+                <div className="px-6 py-4 md:px-12 md:py-8">
                     <Text>{description}</Text>
                 </div>
             </SmoothCollapse>

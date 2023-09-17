@@ -11,6 +11,11 @@ const Title = styled.h1<{ $primary?: boolean; }>`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    
+    @media (max-width: 576px) { /* Change the value based on your desired breakpoint */
+      font-size: 24px; /* Change the font size for smaller devices */
+      letter-spacing:0.04px
+    }
 `;
 
 

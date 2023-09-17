@@ -12,6 +12,10 @@ const Text = styled.h3<{ $primary?: boolean; }>`
     font-weight: 700;
     line-height: normal;
     letter-spacing: 0.064px;
+    @media (max-width: 576px) { /* Change the value based on your desired breakpoint */
+        font-size: 16px; /* Change the font size for smaller devices */
+        letter-spacing:0.04px;
+    }
 `
 
 const ButtonWrapper = styled.div<{ $primary?: boolean; }>`

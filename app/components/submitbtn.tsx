@@ -17,6 +17,11 @@ const Button = styled.button`
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.085px;
+
+  @media (max-width: 576px) { /* Change the value based on your desired breakpoint */
+    font-size: 24px; /* Change the font size for smaller devices */
+    letter-spacing:0.04px
+  }
 `;
 
 interface SubmitButtonProps {
