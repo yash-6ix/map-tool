@@ -28,7 +28,7 @@ export default function DecisionTool() {
   },[router])
   return (
     <>
-      <div className="w-full lg:max-w-5xl text-center mt-12 md:mt-20">
+      <div className="w-full lg:max-w-5xl text-center mt-12 md:mt-20 mx-auto">
         <div className='mb-6'>
             <div className='mb-2'>
                 <MainTitle>{langData[lang].title_1}</MainTitle>

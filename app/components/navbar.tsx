@@ -15,7 +15,7 @@ export default function Navbar() {
       }, [lang, router.query.age])
     return (
         <>
-        <div className="z-10 flex max-w-5xl w-full items-center justify-between font-mono text-sm pt-8 px-4 md:pt-12 md:px-12">
+        <div className="z-10 flex max-w-5xl w-full items-center justify-between font-mono mx-auto text-sm pt-8 px-4 md:pt-12 md:px-12">
             <div className="left-0 flex w-full items-end bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto">
                 <a
                 className="pointer-events-none flex place-items-center gap-2 p-0 lg:pointer-events-auto"
